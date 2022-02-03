@@ -71,3 +71,5 @@
 - 테스트를 수행한 뒤 결과를 보고하는 Test Runner
 - 테스트 코드 내에서 조건, 비교를 통한 테스트 로직을 작성하는 Assertion
 - 예전에는 Test Runner에 해당하는 라이브러리(대표적으로 Mocha)와 Assertion에 해당하는 라이브러리(대표적으로 Chai)가 따로 있었지만 요즘에는 [Jest](https://jestjs.io/docs/getting-started) 라이브러리 하나면 된다.
+
+> 에러, 비동기, DI 관련 케이스에서 Mock을 사용할지, Stub를 사용할지 공식문서를 통해 학습하자!

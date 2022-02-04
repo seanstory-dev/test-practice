@@ -81,3 +81,41 @@
 3. 반복되는 테스트 코드는 별도의 함수나 클래스로 만들어 재사용성을 높인다.
 4. 테스트 코드는 배포용 코드와 철저히 분리한다.
 5. 테스트 코드는 곧 문서화이다.
+
+### 테스트 구조
+
+- beforeAll
+- beforeEach
+- 테스트
+  - 준비(Arrange, Given)
+  - 실행(Act, When)
+  - 검증(Assert, Then)
+- afterEach
+- afterAll
+
+### FIRST 테스트 원칙
+
+- Fast - (파일, 데이터베이스, 네트워크 등) 느린 것에 대한 의존성 낮추기 -> mock, stub
+- Isolated - 최소한의 유닛으로 테스트를 독립적이고 집중적으로 유지하기
+- Repeatable - 실행할 때마다 동일한 결과를 유지하기 -> 외부 환경에 영향을 받지 않도록 작성하여야 함
+- Self-Validating - 스스로 결과를 검증하기 -> Jest를 사용하면 충족, CI/CD 자동화를 통한 검증
+- Timely - 시기적절하게 테스트 코드를 작성하기 -> 사용자에게 배포되기 이전에 작성하여야 함
+
+### 무엇을 테스트해야 할지 모를 때 - Right-BICEP
+
+- 모든 요구사항이 정상 동작하는지 확인
+- Boundary conditions - 모든 코너 케이스(인풋)에 대해 테스트 -> CORRECT 원칙 참고
+- Inverse relationship - 역관계를 이용해서 결과값을 확인
+- Cross-check - 다른 수단을 이용해서 결과값이 맞는지 확인
+- Error Conditions - 불행한 경로에 대해 우아하게 처리하는지 확인(네트워크 에러, 메모리 부족, 데이터베이스 중지)
+- Performance characteristics - 성능 확인은 테스트를 통해 정확한 수치로 확인
+
+### 좋은 테스트의 커버리지 - CORRECT
+
+- Conformance - 특정 포맷을 준수
+- Ordering - 순서
+- Range - 범위
+- Reference - 외부 의존성 유무, 특정한 조건의 유무
+- Existence - 값이 존재하지 않을 때
+- Cardinality - 0-1-N 법칙에 따라 검증
+- Time - 시간

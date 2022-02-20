@@ -59,11 +59,21 @@ describe("HabitPresenter", () => {
     );
   });
 
-  it("resets all habit counts to 0", () => {
-    presenter.reset(update);
-    expect(presenter.getHabits()[0].count).toBe(0);
-    expect(presenter.getHabits()[1].count).toBe(0);
-    checkUpdateIsCalled();
+  describe("reset", () => {
+    it("resets all habit counts to 0", () => {
+      presenter.reset(update);
+      expect(presenter.getHabits()[0].count).toBe(0);
+      expect(presenter.getHabits()[1].count).toBe(0);
+      checkUpdateIsCalled();
+    });
+
+    it("does not create new object when count is 0", () => {
+      const habits = presenter.getHabits();
+      presenter.reset(update);
+      const updatedHabits = presenter.getHabits();
+
+      expect(updatedHabits[1]).toBe(habits[1]); // toBe는 object의 참조값을 비교
+    });
   });
 
   function checkUpdateIsCalled() {

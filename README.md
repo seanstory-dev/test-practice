@@ -119,3 +119,5 @@
 - Existence - 값이 존재하지 않을 때
 - Cardinality - 0-1-N 법칙에 따라 검증
 - Time - 시간
+
+> 테스트 커버리지 확인: `npm test -- --coverage`
